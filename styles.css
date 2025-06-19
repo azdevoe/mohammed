@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    
+   
+    background-color: #f8f9fa;
+  }
+  
+  header {
+    background-color: #4CAF50;
+    padding: 10px;
+    color: white;
+    text-align: center;
+  }
+ 
+
+  
+  form {
+    margin: 20px 0;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+  }
+  
+  input, textarea, button {
+    margin: 8px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+  }
+ 
+  
+  main {
+    margin-top: 30px;
+  }
+  
+  .flash-message {
+    margin-bottom: 20px;
+  }
+    .gcse-search {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+  }
+  
