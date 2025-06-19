@@ -12,6 +12,9 @@ RUN apt-get update && apt-get install -y \
 # Copy Nginx configuration
 COPY nginx.conf /etc/nginx/sites-enabled/default
 
+# Test Nginx configuration
+RUN nginx -t
+
 # Set working directory
 WORKDIR /app
 COPY . /app
@@ -19,5 +22,8 @@ COPY . /app
 # Install PHP dependencies (if composer.json exists)
 RUN composer install --no-dev --optimize-autoloader || true
 
-# Start Nginx and PHP-FPM
-CMD service nginx start && php-fpm
+# Ensure uploads directory is writable
+RUN mkdir -p /app/uploads && chmod -R 777 /app/uploads
+
+# Start Nginx and PHP-FPM in foreground
+CMD ["sh", "-c", "php-fpm -D && nginx -g 'daemon off;'"]
